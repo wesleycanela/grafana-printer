@@ -1,0 +1,16 @@
+services:
+  grafana-printer:
+    build: .
+    container_name: grafana-printer
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - NO_PROXY=localhost,127.0.0.1
+      - no_proxy=localhost,127.0.0.1
+    mem_limit: 1G
+    mem_reservation: 512M
+    cpus: 1.0
+    shm_size: '2gb'
